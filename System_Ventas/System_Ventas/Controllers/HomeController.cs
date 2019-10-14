@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,13 +17,23 @@ namespace System_Ventas.Controllers
         public HomeController(IServiceProvider serviceProvider)
         {
             // CreateRoles(serviceProvider);
-            ejecutarTareaAsync();
+            //ejecutarTareaAsync();
         }         
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Index(LoginViewModels model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
         public IActionResult Privacy()
         {
             return View();
