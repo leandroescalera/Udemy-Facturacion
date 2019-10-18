@@ -5,6 +5,7 @@ D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\b
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\bin\Debug\netcoreapp2.2\System_Ventas.pdb
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\bin\Debug\netcoreapp2.2\System_Ventas.Views.dll
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\bin\Debug\netcoreapp2.2\System_Ventas.Views.pdb
+D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\System_Ventas.csprojAssemblyReference.cache
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\System_Ventas.csproj.CoreCompileInputs.cache
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\System_Ventas.RazorAssemblyInfo.cache
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\System_Ventas.RazorAssemblyInfo.cs
@@ -18,6 +19,7 @@ D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\o
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Areas\Principal\Views\Principal\Index.g.cshtml.cs
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
 D:\Informatica\Repository GitHub\Udemy-Facturacion\System_Ventas\System_Ventas\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs

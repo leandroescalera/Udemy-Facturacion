@@ -8,17 +8,21 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using System_Ventas.Areas.Principal.Controllers;
+using System_Ventas.Library;
 using System_Ventas.Models;
 
 namespace System_Ventas.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController(IServiceProvider serviceProvider)
+        private Usuarios _usuarios;
+        public HomeController(UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
-            // CreateRoles(serviceProvider);
-            //ejecutarTareaAsync();
-        }         
+            _usuarios = new Usuarios(userManager, signInManager, roleManager);
+        }
         public IActionResult Index()
         {
             return View();
@@ -30,7 +34,19 @@ namespace System_Ventas.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                List<object[]> listObject = await _usuarios.userLogin(model.Input.Email, model.Input.Password);
+                object[] objects = listObject[0];
+                var _identityError = (IdentityError)objects[0];
+                model.ErrorMessage = _identityError.Description;
+                if (model.ErrorMessage.Equals("True"))
+                {
+                    var data = JsonConvert.SerializeObject(objects[0]);
+                    return RedirectToAction(nameof(PrincipalController.Index), "Principal", new { Area = "Principal" });
+                }
+                else
+                {
+                    View(model);
+                }
             }
             return View(model);
         }
@@ -85,7 +101,7 @@ namespace System_Ventas.Controllers
             String tarea = "Tarea finalizada";
             return tarea;
         }
-        
-        
+
+
     }
 }
