@@ -43,6 +43,13 @@ namespace System_Ventas
             
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.ConfigureApplicationCookie(options=> {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromDays(1);
+                options.LoginPath = "/Home/Index";
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,13 +76,18 @@ namespace System_Ventas
             app.UseMvc(routes =>
             {
                 //routes.MapAreaRoute(
-                //    name: "MyAreaPrincipal",
-                //    areaName: "Principal",
-                //    template: "Principal/{controller=Principal}/{action=Index}/{id?}");
+                //    name: "MyAreaUsuarios",
+                //    areaName: "Usuarios",
+                //    template: "Usuarios/{controller=Usuarios}/{action=Index}/{id?}");
 
-                routes.MapRoute(
-                    name:"areas",
-                    template:"{area:exists}/{controller=Principal}/{action=Index}/{id?}");
+                routes.MapAreaRoute(
+                    name: "MyAreaPrincipal",
+                    areaName: "Principal",
+                    template: "Principal/{controller=Principal}/{action=Index}/{id?}");
+
+                //routes.MapRoute(
+                //    name:"areas",
+                //    template:"{area:exists}/{controller=Principal}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default", 
