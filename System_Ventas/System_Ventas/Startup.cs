@@ -50,11 +50,18 @@ namespace System_Ventas
                 options.LoginPath = "/Home/Index";
 
             });
+
+            services.AddSession(options=> {
+                options.Cookie.Name = ".SystemVentas.Session";
+                options.IdleTimeout = TimeSpan.FromHours(12);
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSession();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -63,10 +70,11 @@ namespace System_Ventas
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            //app.UseStatusCodePages();
+            app.UseStatusCodePagesWithReExecute("/Error/Error","?statusCode={0}");
+            //app.UseStatusCodePagesWithRedirects("/Error");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
