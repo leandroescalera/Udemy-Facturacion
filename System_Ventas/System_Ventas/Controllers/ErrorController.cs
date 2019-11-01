@@ -9,11 +9,11 @@ namespace System_Ventas.Controllers
     //[Route("/Error")]
     public class ErrorController : Controller
     {
-        public IActionResult Error(int? statusCode=null)
+        public IActionResult Error(int? statusCode = null)
         {
             if (statusCode.HasValue)
             {
-                if (statusCode.Value == 404 || statusCode.Value == 500)
+                if (statusCode.Value == 404 ||  statusCode.Value == 500)
                 {
                     ViewData["Error"] = statusCode.ToString();
                 }

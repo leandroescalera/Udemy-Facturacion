@@ -1,10 +1,28 @@
 ﻿
+.btn-floating {
+    background: url(../imagenes/iconos/ic_reorder_whites.png) no-repeat
+}
+
+.sider-nav{
+    top:0;
+    margin:0;
+    height:calc(100% + 60px);
+    background-color: #fff;
+    overflow-y:auto;
+    will-change:tranform;
+}
+
+@media(max-with: 1024px) {
+    .sider-nav {
+        display:none;
+    }
+}
 @media(min-with:800px) {
     .container {
         max-width: 60%;
     }
-}
-/* Hide/rearrange for smaller screens
--------------------------------------------------- */
-@media screen and (max-width: 768px) {
+    .sider-nav {
+        max-width: 20%;
+        display: block;
+    }
 }

@@ -73,7 +73,7 @@ namespace System_Ventas
                 app.UseHsts();
             }
             //app.UseStatusCodePages();
-            app.UseStatusCodePagesWithReExecute("/Error/Error","?statusCode={0}");
+            app.UseStatusCodePagesWithReExecute("/Error/Error", "?statusCode={0}");
             //app.UseStatusCodePagesWithRedirects("/Error");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
