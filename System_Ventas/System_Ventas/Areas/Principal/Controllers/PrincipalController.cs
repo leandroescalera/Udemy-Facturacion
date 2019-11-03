@@ -9,7 +9,7 @@ namespace System_Ventas.Areas.Principal.Controllers
 {
     [Authorize]
     [Area("Principal")]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class PrincipalController : Controller
     {
         

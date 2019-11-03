@@ -10,6 +10,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/materialize/css/materialize.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </environment>
     <environment exclude="Development">
     </environment>
@@ -25,17 +26,19 @@
                 </a>
                 @if (SignInManager.IsSignedIn(User))
                 {
-            <div id="menuNavbar1">
-                <ul class="right hide-on-med-and-down">
+                    <div id="menuNavbar1">
+                        <ul class="right hide-on-med-and-down">
+                            <li>
+                                <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="SessionClose">
+                                    Salir
+                                </a>
+                            </li>
+                            
+                        </ul>
 
-                    <a asp-area="" asp-controller="Usuarios" asp-action="SessionClose">
-                        Salir
-                    </a>
-                </ul>
+                        <a href="#" data-target="slide-out" class="material-icons dp48 btn-floating btn-large waves-effect waves-light cyan darken-2 sidenav-trigger"><i class="large material-icons">dehaze</i></a>
 
-                <a href="#" data-target="slide-out" class="material-icons dp48 btn-floating btn-large waves-effect waves-light cyan darken-2 sidenav-trigger"></a>
-                
-            </div>
+                    </div>
                 }
             </div>
         </nav>
@@ -49,21 +52,54 @@
                 </div>
             </li>
             <li>
-
                 <a asp-area="Principal" asp-controller="Principal" asp-action="Index" onclick="">
-                    Inicio
+                    Principal
                 </a>
             </li>
             <li>
-                <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="SessionClose">
-                    Salir
+                <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="Index" onclick="">
+                    Usuarios
                 </a>
             </li>
+          
 
         </ul>
 
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div id="menuNavbar2">
+                <div id="main">
+                    <div class="nav-wrapper">
+                        <aside id="left-siderbar-nav">
+                            <ul id="slide-out" class="sider-nav fixed leftside-navigation">
+                                <li class="user-details cyan darken-2">
+                                    <div class="row">
+                                        <div>
+                                            <img src="~/imagenes/fotos/default.png" alt="" id="foto2" class="circle responsive-img valid profile-image" />
+                                        </div>
+                                        <div class="col col s8 m8 l8">
+                                            <p class="white-text" id="name2">@UserManager.GetUserName(User)</p>
+                                            <p class="white-text" id="role2">@ViewData["Roles"]</p>
 
+                                        </div>
+                                    </div>
+                                </li>
+                                <div class="collection">
+                                    <a asp-area="Principal" asp-controller="Principal" asp-action="Index" onclick="" id="enlace1" class="collection-item">Inicio</a>
+
+                                    <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="Index" onclick="" id="enlace2" class="collection-item">Usuarios</a>
+
+                                </div>
+                            </ul>
+                        </aside>
+                    </div>
+
+                </div>
+            </div>
+
+        }
     </header>
+
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">

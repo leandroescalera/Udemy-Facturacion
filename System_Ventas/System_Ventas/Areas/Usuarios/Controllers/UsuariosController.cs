@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System_Ventas.Controllers;
 
 namespace System_Ventas.Areas.Usuarios.Controllers
 {
+    [Authorize]
+    [Area("Usuarios")]
     
     public class UsuariosController : Controller
     {
@@ -25,7 +28,8 @@ namespace System_Ventas.Areas.Usuarios.Controllers
         public async Task<IActionResult> SessionClose()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction(nameof(HomeController.Index),"Home");
+            return RedirectToAction(nameof(HomeController.Index), "");
+            
         }
     }
 }

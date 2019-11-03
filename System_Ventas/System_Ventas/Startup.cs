@@ -42,7 +42,9 @@ namespace System_Ventas
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options =>
+                options.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.ConfigureApplicationCookie(options=> {
                 options.Cookie.HttpOnly = true;
@@ -83,10 +85,10 @@ namespace System_Ventas
 
             app.UseMvc(routes =>
             {
-                //routes.MapAreaRoute(
-                //    name: "MyAreaUsuarios",
-                //    areaName: "Usuarios",
-                //    template: "Usuarios/{controller=Usuarios}/{action=Index}/{id?}");
+                routes.MapAreaRoute(
+                    name: "MyAreaUsuarios",
+                    areaName: "Usuarios",
+                    template: "Usuarios/{controller=Usuarios}/{action=Index}/{id?}");
 
                 routes.MapAreaRoute(
                     name: "MyAreaPrincipal",

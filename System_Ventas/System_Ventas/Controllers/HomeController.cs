@@ -18,14 +18,25 @@ namespace System_Ventas.Controllers
     public class HomeController : Controller
     {
         private Usuarios _usuarios;
+        private SignInManager<IdentityUser> _signInManager;
+
         public HomeController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
+            _signInManager = signInManager;
             _usuarios = new Usuarios(userManager, signInManager, roleManager);
         }
         public IActionResult Index()
         {
-            return View();
+            if (_signInManager.IsSignedIn(User))
+            {
+                return RedirectToAction(nameof(PrincipalController.Index), "Principal");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         [HttpPost]
