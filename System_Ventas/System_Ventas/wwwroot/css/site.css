@@ -11,7 +11,10 @@
     overflow-y:auto;
     will-change:tranform;
 }
-
+.img-nav{
+    width: 250px;
+    height: 250px;
+}
 @media(max-with: 1024px) {
     .sider-nav {
         display:none;

@@ -1,23 +1,26 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System_Ventas.Models;
 
 namespace System_Ventas.Library
 {
-    public class Usuarios : ListObject
+    public class LUsuarios : ListObject
     {
-        public Usuarios()
+        public LUsuarios()
         {
 
         }
-        public Usuarios(RoleManager<IdentityRole> roleManager)
+        public LUsuarios(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
             _usersRole = new UsersRoles();
         }
-        public Usuarios(UserManager<IdentityUser> userManager,
+        public LUsuarios(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
@@ -35,7 +38,8 @@ namespace System_Ventas.Library
                 {
                     var appUser = _userManager.Users.Where(u => u.Email.Equals(email)).ToList();
                     _userRoles = await _usersRole.getRole(_userManager, _roleManager, appUser[0].Id);
-                    _userData = new Models.UserData {
+                    _userData = new UserData
+                    {
                         Id = appUser[0].Id,
                         Role=_userRoles[0].Text,
                         UserName=appUser[0].UserName
@@ -68,5 +72,22 @@ namespace System_Ventas.Library
             return dataList;
 
         }
+
+        public String userData(HttpContext HttpContext)
+        {
+            String role = null;
+            var user = HttpContext.Session.GetString("User");
+            if (user != null)
+            {
+                UserData dataItem = JsonConvert.DeserializeObject<UserData>(user.ToString());
+                role = dataItem.Role;
+            }
+            else
+            {
+                role = "No data";
+            }
+            return role;
+        }
+
     }
 }

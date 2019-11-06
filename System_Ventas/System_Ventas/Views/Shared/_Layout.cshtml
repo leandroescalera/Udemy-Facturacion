@@ -48,7 +48,7 @@
                 <div class="user-view cyan darken-2">
                     <img id="foto1" class="circle responsive-img valign-wrapper profile-image" src="~/imagenes/fotos/default.png" />
                     <p class="white-text" id="name1">@UserManager.GetUserName(User)</p>
-                    <p class="white-text" id="role1"></p>
+                    <p class="white-text" id="role1">@ViewData["Roles"]</p>
                 </div>
             </li>
             <li>
@@ -84,12 +84,14 @@
                                         </div>
                                     </div>
                                 </li>
-                                <div class="collection">
-                                    <a asp-area="Principal" asp-controller="Principal" asp-action="Index" onclick="" id="enlace1" class="collection-item">Inicio</a>
+                                <li>
+                                    <div class="collection">
+                                        <a asp-area="Principal" asp-controller="Principal" asp-action="Index" onclick="" id="enlace1" class="collection-item">Inicio</a>
 
-                                    <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="Index" onclick="" id="enlace2" class="collection-item">Usuarios</a>
+                                        <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="Index" onclick="" id="enlace2" class="collection-item">Usuarios</a>
 
-                                </div>
+                                    </div>
+                                </li>
                             </ul>
                         </aside>
                     </div>
