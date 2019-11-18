@@ -28,4 +28,8 @@
         max-width: 20%;
         display: block;
     }
+    .container2{
+        width: 95%;
+        margin: -300px 30px 0px; 
+    }
 }

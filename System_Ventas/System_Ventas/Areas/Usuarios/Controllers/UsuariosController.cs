@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System_Ventas.Controllers;
+using System_Ventas.Library;
 
 namespace System_Ventas.Areas.Usuarios.Controllers
 {
@@ -16,14 +17,24 @@ namespace System_Ventas.Areas.Usuarios.Controllers
     public class UsuariosController : Controller
     {
         private readonly SignInManager<IdentityUser> _signInManager;
+        private LUsuarios _usuarios;
         public UsuariosController(SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
+            _usuarios = new LUsuarios();
         }
         
         public IActionResult Index()
         {
-            return View();
+            if (_signInManager.IsSignedIn(User))
+            {
+                ViewData["Roles"] = _usuarios.userData(HttpContext);
+                return View();
+            }
+            else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
         }
 
         public async Task<IActionResult> SessionClose()

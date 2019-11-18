@@ -71,28 +71,27 @@
                 <div id="main">
                     <div class="nav-wrapper">
                         <aside id="left-siderbar-nav">
-                            <ul id="slide-out" class="sider-nav fixed leftside-navigation">
-                                <li class="user-details cyan darken-2">
-                                    <div class="row">
-                                        <div>
-                                            <img src="~/imagenes/fotos/default.png" alt="" id="foto2" class="circle responsive-img valid profile-image" />
+                            
+                                <ul id="slide-out" class="sider-nav fixed leftside-navigation">
+                                    <li class="user-details cyan darken-2">
+                                        <div class="row">
+                                            <div>
+                                                <img src="~/imagenes/fotos/default.png" alt="" id="foto2" class="circle responsive-img valid profile-image" />
+                                            </div>
+                                            <div class="col s8 m8 l8">
+                                                <p class="white-text" id="name2">@UserManager.GetUserName(User)</p>
+                                                <p class="white-text" id="role2">@ViewData["Roles"]</p>
+                                            </div>
                                         </div>
-                                        <div class="col col s8 m8 l8">
-                                            <p class="white-text" id="name2">@UserManager.GetUserName(User)</p>
-                                            <p class="white-text" id="role2">@ViewData["Roles"]</p>
-
+                                    </li>
+                                    <li>
+                                        <div class="collection">
+                                            <a asp-area="Principal" asp-controller="Principal" asp-action="Index" onclick="" id="enlace1" class="collection-item">Inicio</a>
+                                            <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="Index" onclick="" id="enlace2" class="collection-item">Usuarios</a>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="collection">
-                                        <a asp-area="Principal" asp-controller="Principal" asp-action="Index" onclick="" id="enlace1" class="collection-item">Inicio</a>
-
-                                        <a asp-area="Usuarios" asp-controller="Usuarios" asp-action="Index" onclick="" id="enlace2" class="collection-item">Usuarios</a>
-
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            
                         </aside>
                     </div>
 
