@@ -19,3 +19,4 @@ El pin le pides al Raul.
 
 Al ingresar y conectarse a la red del banco, debe ingresar el PIN + N° Dinámico del RSA.
 
+http://www.java2s.com/Tutorials/CSharp/System/Console/C_Console_OpenStandardOutput_.htm
